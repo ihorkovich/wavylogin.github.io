@@ -122,7 +122,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* My reset style */
+/* Custom reset style */
 input {
   all: unset;
 }
