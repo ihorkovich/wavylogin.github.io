@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://img.icons8.com/fluency/96/sea-waves.png"
+      type="image/icon type"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Kanit", sans-serif !important;
+        transition-duration: 0.3s;
+      }
+    </style>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+    <script type="module" defer src="/script.js"></script>
+    <title>Wave-login</title>
+  </head>
+  <body>
+    <div class="login-wave">
+      <div class="login">
+        <p class="login__sign-in-text">Login</p>
+        <label class="login__text-label label"
+          ><input
+            type="text"
+            class="username input"
+            placeholder="Username"
+            required
+          />
+        </label>
+        <label class="login__email-label label"
+          ><input
+            type="email"
+            class="email input"
+            placeholder="Email"
+            required
+          />
+        </label>
+        <div class="login__button-container">
+          <button class="login__sign-in-button">Submit</button>
+          <div class="button-hover-effect"></div>
+        </div>
+      </div>
+    </div>
+    <div class="waves">
+      <img src="images/waves/first-wave.svg" class="first-wave wave" alt="" />
+      <img src="images/waves/second-wave.svg" class="second-wave wave" alt="" />
+      <img src="images/waves/third-wave.svg" class="third-wave wave" alt="" />
+      <img src="images/waves/fourth-wave.svg" class="fourth-wave wave" alt="" />
+
+      <div class="fishes">
+        <img
+          src="images/fish/clown-fish.png"
+          class="fish clown-fish"
+          alt="clown"
+        />
+        <img src="images/fish/fish1.png" class="fish ua-fish" alt="UA fish" />
+        <img src="images/fish/fish2.png" class="fish fish2" alt="2 fish" />
+        <img
+          src="images/fish/yellow-fish.png"
+          class="fish yellow-fish"
+          alt="yellow-fish"
+        />
+      </div>
+      <div class="algaes">
+        <img class="algae1 algae" src="images/algae/algae.png" alt="" />
+        <img class="algae2 algae" src="images/algae/algae.png" alt="" />
+        <img class="algae3 algae" src="images/algae/algae.png" alt="" />
+      </div>
+    </div>
+    <div class="save-button-container">
+      <button class="save-button">Save &#8594;</button>
+    </div>
+  </body>
+</html>

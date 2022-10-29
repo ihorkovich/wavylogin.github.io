@@ -1,0 +1,383 @@
+$inputBorderColor: #eb52b8;
+$textColor: #eec0c6;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin waveAnimation($name, $duration, $delay) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate-reverse;
+}
+
+@mixin fishAnimation($name, $duration, $timingFunction) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: $timingFunction;
+  animation-direction: alternate-reverse;
+}
+
+@mixin loginAnimation {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-timing-function: $timingFunction;
+  animation-direction: alternate-reverse;
+}
+
+.login-wave {
+  width: 100%;
+  height: 100vh;
+  @include flexCenter(row);
+  min-width: none;
+  background-color: rgb(77, 120, 213);
+
+  .login {
+    width: 320px;
+    height: 350px;
+    z-index: 1;
+
+    background-color: #00000030;
+    border: 2px solid $inputBorderColor;
+    @include flexCenter(column);
+    justify-content: space-around;
+
+    .login__sign-in-text {
+      font-weight: 700;
+      font-size: 39px;
+      color: $textColor;
+    }
+
+    .label {
+      width: 90%;
+      height: 70px;
+      .input {
+        width: 100%;
+        height: 100%;
+        color: $textColor;
+        text-indent: 20px;
+        border: 2px solid $inputBorderColor;
+      }
+      input::placeholder {
+        color: $textColor;
+      }
+    }
+
+    .login__button-container {
+      width: 90%;
+      height: 70px;
+      position: relative;
+      overflow: hidden;
+
+      .login__button:focus,
+      .login__button:active {
+        outline: none;
+      }
+
+      .login__sign-in-button {
+        width: 100%;
+        height: 100%;
+        font-size: 20px;
+        color: $textColor;
+        background-color: transparent;
+        border: 2px solid $inputBorderColor;
+      }
+      .login__sign-in-button:hover {
+        cursor: pointer;
+        box-shadow: inset 0 -3.5em 0 0 #eb52b8;
+      }
+    }
+
+    animation-name: loginAnimation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate-reverse;
+    @keyframes loginAnimation {
+      0% {
+        transform: translateY(-30px);
+        rotate: -6deg;
+      }
+      33% {
+        transform: translateY(0px);
+        rotate: 3deg;
+      }
+      40% {
+        transform: translateY(-6px);
+        rotate: 6deg;
+      }
+      66% {
+        transform: translateY(10px);
+        rotate: -3deg;
+      }
+      80% {
+        transform: translateY(5px);
+        rotate: 3deg;
+      }
+      100% {
+        transform: rotate(0deg);
+        transform: translateY(20px);
+      }
+    }
+  }
+}
+
+.waves {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+
+  .wave {
+    position: absolute;
+    top: 250px;
+  }
+  .first-wave {
+    top: 230px;
+    left: -450px;
+    @include waveAnimation(first-wave, 6s, 0.2s);
+  }
+  .second-wave {
+    top: 160px;
+    left: -400px;
+    @include waveAnimation(second-wave, 4s, 0.4s);
+  }
+  .third-wave {
+    top: 230px;
+    left: -350px;
+    z-index: 2;
+    opacity: 0.5;
+    @include waveAnimation(third-wave, 3s, 0.6s);
+  }
+  .cover-3-other-waves {
+    top: 400px;
+  }
+  .fourth-wave {
+    top: 270px;
+    left: -300px;
+    z-index: 2;
+    opacity: 0.6;
+    @include waveAnimation(fourth-wave, 3s, 0);
+  }
+  .cover-waves {
+    position: absolute;
+    opacity: 0.7;
+    width: 100vw;
+    top: 450px;
+  }
+
+  @keyframes first-wave {
+    0% {
+      left: -450px;
+      top: 210px;
+    }
+    100% {
+      left: -150px;
+      top: 250px;
+    }
+  }
+  @keyframes second-wave {
+    0% {
+      left: -300px;
+      top: 170px;
+    }
+    16% {
+      top: 175px;
+    }
+    33% {
+      top: 180px;
+    }
+    50% {
+      left: -200px;
+      top: 185px;
+    }
+    66% {
+      top: 180px;
+    }
+    83% {
+      top: 175px;
+    }
+    100% {
+      top: 170px;
+      left: 0px;
+    }
+  }
+  @keyframes third-wave {
+    0% {
+      left: -200px;
+    }
+    50% {
+      left: -350px;
+    }
+    100% {
+      left: -400px;
+    }
+  }
+  @keyframes fourth-wave {
+    0% {
+      left: -400px;
+      top: 270px;
+    }
+    16% {
+      top: 265px;
+    }
+    33% {
+      top: 260px;
+    }
+    50% {
+      top: 255px;
+    }
+    66% {
+      top: 250px;
+    }
+    83% {
+      top: 255px;
+    }
+    100% {
+      left: -200px;
+      top: 260px;
+    }
+  }
+
+  .fishes {
+    position: absolute;
+    bottom: -300px;
+    width: 100vw;
+    height: 500px;
+
+    .fish {
+      width: 50px;
+      //   opacity: 0.7;
+      position: absolute;
+    }
+    .clown-fish {
+      top: 30px;
+      left: 10%;
+      //   opacity: 0.5;
+      @include fishAnimation(clown-fish, 10s, linear);
+    }
+    .ua-fish {
+      top: 50px;
+      right: 25%;
+      opacity: 0.8;
+      @include fishAnimation(ua-fish, 7s, ease-in-out);
+    }
+    .fish2 {
+      top: 80px;
+      left: 40%;
+      @include fishAnimation(fish2, 5s, linear);
+    }
+    .yellow-fish {
+      top: 10px;
+      left: 60%;
+      opacity: 0.7;
+      @include fishAnimation(yellow-fish, 4s, ease-in-out);
+    }
+
+    @keyframes clown-fish {
+      0% {
+        left: 20%;
+      }
+      100% {
+        left: 10%;
+      }
+    }
+
+    @keyframes ua-fish {
+      0% {
+        right: 5%;
+      }
+      100% {
+        right: 25%;
+      }
+    }
+
+    @keyframes fish2 {
+      0% {
+        left: 40%;
+      }
+      100% {
+        left: 55%;
+      }
+    }
+
+    @keyframes yellow-fish {
+      0% {
+        left: 60%;
+      }
+      100% {
+        left: 50%;
+      }
+    }
+  }
+  .algaes {
+    width: 100vw;
+    height: 30vh;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    align-items: flex-end;
+
+    .algae {
+      margin-bottom: -3px;
+      margin-left: 5vw;
+    }
+    .algae1 {
+      width: 100px;
+      aspect-ratio: 1/1;
+    }
+    .algae2 {
+      width: 80px;
+      margin-left: 20vw;
+      margin-bottom: -2px;
+    }
+    .algae3 {
+      height: 110px;
+      margin-left: 40vw;
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.save-button-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+  .save-button {
+    width: 200px;
+    height: 70px;
+    font-size: 30px;
+    color: $textColor;
+    transition-duration: 0.5s;
+    background-color: transparent;
+    border: 0px;
+    // border: 2px solid $inputBorderColor;
+  }
+  .save-button:hover {
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+  .save-button::after {
+    content: "";
+    width: 0px;
+    height: 2px;
+    display: block;
+    background: $inputBorderColor;
+    transition: 0.3s;
+  }
+  .save-button:hover::after {
+    margin-left: 20%;
+    width: 60%;
+  }
+}
